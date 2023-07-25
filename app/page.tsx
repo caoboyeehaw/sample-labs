@@ -1,13 +1,14 @@
-// app/pages/Home.tsx
-// use client
 
-import { useState } from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ModeToggle } from '@/components/ui/mode-toggle'
 import AuthenticationModal from "@/components/ui/authenticationmodal"
 
-export default function Home() {
+const Home: React.FC = () => {
+  
     const [isModalOpen, setModalOpen] = useState(false);
 
     function openModal() {
@@ -17,6 +18,7 @@ export default function Home() {
     function closeModal() {
         setModalOpen(false);
     }
+    
 
     return (
       <div className="flex justify-between items-center px-4 py-4 w-full md:w-full lg:w-3/4 xl:w-2/3 mx-auto">
@@ -31,6 +33,10 @@ export default function Home() {
         </div>
 
         <AuthenticationModal isOpen={isModalOpen} onRequestClose={closeModal} />
+
       </div>
     )
 }
+
+export default Home;
+
