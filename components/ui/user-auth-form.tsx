@@ -32,7 +32,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             </Label>
             <Input
               id="email"
-              placeholder="name@example.com"
+              placeholder="Email address"
               type="email"
               autoCapitalize="none"
               autoComplete="email"
@@ -64,7 +64,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         ) : (
           <Icons.gitHub className="mr-2 h-4 w-4" />
         )}{" "}
-        Github
+        Google
       </Button>
     </div>
   )

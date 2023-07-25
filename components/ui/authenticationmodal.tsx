@@ -18,9 +18,34 @@ interface AuthenticationModalProps {
 }
 
 const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProps) => {
+    const customStyles = {
+        content: {
+            border: 'none',
+            background: 'rgba(100, 100, 100, 0.5)',
+            backdropFilter: 'blur(4px)',
+            padding: '0px',
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+        },
+        overlay: {
+            background: 'rgba(50, 50, 50, 0.73)', // you can adjust opacity as you need
+            backdropFilter: 'blur(3px)', // this will blur the background behind the overlay
+        },
+    };
+
+
+    
     return (
-        <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
-            <div className="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+        <Modal 
+            isOpen={isOpen} 
+            onRequestClose={onRequestClose} 
+            style={customStyles}
+        >
+            <div className="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 bg-background">
                 <Link href="/examples/authentication" className={cn(buttonVariants({ variant: "ghost" }), "absolute right-4 top-4 md:right-8 md:top-8")}>
                     Login
                 </Link>
@@ -64,8 +89,11 @@ const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProp
                             .
                         </p>
                     </div>
+                    
                 </div>
+                
             </div>
+            
         </Modal>
     );
 };
