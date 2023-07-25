@@ -3,9 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Modal from 'react-modal';
 
+
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-newyork";
 import { UserAuthForm } from "@/components/ui/user-auth-form";
+import styled, { createGlobalStyle } from 'styled-components';
+
+
 
 export const metadata: Metadata = {
     title: "Authentication",
@@ -20,30 +24,68 @@ interface AuthenticationModalProps {
 const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProps) => {
     const customStyles = {
         content: {
+            //border: '2px solid #27272a',
             border: 'none',
-            background: 'rgba(100, 100, 100, 0.5)',
-            backdropFilter: 'blur(4px)',
             padding: '0px',
             top: '50%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
             marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
+            transform: 'translate(-50%, -50%) scale(.8)',
+            opacity: 0,
+            transition: 'opacity 0.2s ease-in-out, transform 0.1s ease-in-out',  // added transform here
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)', 
+            borderRadius: '10px',
+            background: 'rgba(50, 50, 50, 0.30)', 
         },
         overlay: {
-            background: 'rgba(50, 50, 50, 0.73)', // you can adjust opacity as you need
-            backdropFilter: 'blur(3px)', // this will blur the background behind the overlay
+            background: 'rgba(50, 50, 50, 0.30)',
+            backdropFilter: 'blur(4px)',
+            transition: 'opacity 0.4s ease-in-out',
         },
     };
+    
 
+    
+    const GlobalStyle = createGlobalStyle`
+    @keyframes fade-in {
+        from { 
+            opacity: 0; 
+            transform: scale(.6);  // initially scale to .6
+        }
+        to { 
+            opacity: 1; 
+            transform: scale(1);  // grow to full size
+        }
+    }
+    @keyframes fade-out {
+        from { 
+            opacity: 1; 
+            transform: scale(1);  // initially scale to 1
+        }
+        to { 
+            opacity: 0; 
+            transform: scale(.6);  // grow to full size
+        }
+    }
+`;
 
+        
     
     return (
         <Modal 
             isOpen={isOpen} 
             onRequestClose={onRequestClose} 
             style={customStyles}
+            onAfterOpen={() => {
+                customStyles.content.opacity = 1;
+                customStyles.content.transform = 'translate(-50%, -50%) scale(1)';  // added this line
+            }}
+            onAfterClose={() => {
+                customStyles.content.opacity = 0;
+                customStyles.content.transform = 'translate(-50%, -50%) scale(.8)';  // added this line
+            }}
         >
             <div className="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 bg-background">
                 <Link href="/examples/authentication" className={cn(buttonVariants({ variant: "ghost" }), "absolute right-4 top-4 md:right-8 md:top-8")}>

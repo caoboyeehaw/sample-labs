@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button-newyork'
 import { ModeToggle } from '@/components/ui/mode-toggle'
 import AuthenticationModal from "@/components/ui/authenticationmodal"
 
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
     
 
     return (
-      <div className="flex justify-between items-center px-4 py-4 w-full md:w-full lg:w-3/4 xl:w-2/3 mx-auto">
+      <div className="flex justify-between items-center px-4 py-2 w-full md:w-full lg:w-3/4 xl:w-2/3 mx-auto">
         <div className="flex items-center space-x-2">
           <Image src="/sample-labs-logo.png" alt="Logo" width={40} height={40} />
           <h1 className="text-xl font-semibold">Sample Labs</h1>

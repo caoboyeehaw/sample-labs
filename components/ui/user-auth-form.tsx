@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button-newyork"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
@@ -62,9 +62,17 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         {isLoading ? (
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
         ) : (
-          <Icons.gitHub className="mr-2 h-4 w-4" />
+          <Icons.googlecolored className="mr-2 h-4 w-4" />
         )}{" "}
-        Google
+        Sign up with Google
+      </Button>
+      <Button variant="outline" type="button" disabled={isLoading}>
+        {isLoading ? (
+          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+        ) : (
+          <Icons.soundcloudcolored className="mr-2 h-4 w-4" />
+        )}{" "}
+        Sign up with Soundcloud
       </Button>
     </div>
   )
