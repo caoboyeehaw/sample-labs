@@ -24,20 +24,20 @@ interface AuthenticationModalProps {
 const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProps) => {
     const customStyles = {
         content: {
-            //border: '2px solid #27272a',
-            border: 'none',
+            border: '1px solid #27272a',
             padding: '0px',
             top: '50%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
             marginRight: '-50%',
-            transform: 'translate(-50%, -50%) scale(.8)',
+            transform: 'translate(-50%, -50%)', // Initial scale removed
             opacity: 0,
-            transition: 'opacity 0.2s ease-in-out, transform 0.1s ease-in-out',  // added transform here
+            transition: 'opacity 0.2s ease-in-out, transform 0.1s ease-in-out',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)', 
             borderRadius: '10px',
             background: 'rgba(50, 50, 50, 0.30)', 
+            //boxSizing: 'border-box', // Ensure border is included in width/height
         },
         overlay: {
             background: 'rgba(50, 50, 50, 0.30)',
@@ -46,9 +46,8 @@ const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProp
         },
     };
     
-
-    
     const GlobalStyle = createGlobalStyle`
+
     @keyframes fade-in {
         from { 
             opacity: 0; 
@@ -59,10 +58,11 @@ const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProp
             transform: scale(1);  // grow to full size
         }
     }
+    
     @keyframes fade-out {
         from { 
             opacity: 1; 
-            transform: scale(1);  // initially scale to 1
+            transform: scale(1.1);  // initially scale to 1
         }
         to { 
             opacity: 0; 
@@ -70,8 +70,6 @@ const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProp
         }
     }
 `;
-
-        
     
     return (
         <Modal 
@@ -80,23 +78,23 @@ const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProp
             style={customStyles}
             onAfterOpen={() => {
                 customStyles.content.opacity = 1;
-                customStyles.content.transform = 'translate(-50%, -50%) scale(1)';  // added this line
+                customStyles.content.transform = 'translate(-50%, -50%) scale(1.1)';  // Slight increase in size
             }}
             onAfterClose={() => {
                 customStyles.content.opacity = 0;
-                customStyles.content.transform = 'translate(-50%, -50%) scale(.8)';  // added this line
+                customStyles.content.transform = 'translate(-50%, -50%)'; // Scale reset to original size
             }}
         >
-            <div className="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 bg-background">
+            <div className="container relative  h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 bg-background">
                 <Link href="/examples/authentication" className={cn(buttonVariants({ variant: "ghost" }), "absolute right-4 top-4 md:right-8 md:top-8")}>
                     Login
                 </Link>
                 <div className="relative hidden h-full flex-col bg-dark p-10 text-white dark:border-r lg:flex">
-                    <div className="absolute inset-0 bg-zinc-900" />
+                    <div className="absolute inset-0 bg-zinc-900"/>
                     <div className="relative z-20 flex items-center text-lg font-medium">
                     <div className="relative z-20 flex items-center text-lg font-medium">
                         <Image src="/sample-labs-logo.png" alt="Logo" width={70} height={70} className="mr-2 h-8 w-8" />
-                        Sample Labs
+                        WAVLABS LLC
                     </div>
                     </div>
                     <div className="relative z-20 mt-auto">
