@@ -9,3 +9,4 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![test1-export](https://github.com/caoboyeehaw/sample-labs/assets/70660848/aaa8b874-ee99-46a5-a026-470c16f95c6e)
