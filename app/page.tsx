@@ -27,16 +27,7 @@ const Home: React.FC = () => {
     <div className="relative flex justify-between items-center w-full">
       
       <div className="relative flex justify-between items-center px-6 py-2 w-1/2 sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mx-auto backdrop-blur ">
-      <div className="w-full min-w-[500px] absolute z-10 left-0 top-0 h-[30vh]">
-          <Image 
-            //src="/producerphoto.jpg" 
-            src="" 
-            alt="Background image"
-            layout='fill'
-            objectFit='cover'
-            className='rounded-b-2xl'
-          />
-        </div>
+
         <div className="flex items-center space-x-4 z-20 mt-3">
 
           <Link href="/about" passHref>
