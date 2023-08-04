@@ -29,7 +29,8 @@ const Home: React.FC = () => {
       <div className="relative flex justify-between items-center px-6 py-2 w-1/2 sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mx-auto backdrop-blur ">
       <div className="w-full min-w-[500px] absolute z-10 left-0 top-0 h-[30vh]">
           <Image 
-            src="/producerphoto.jpg" 
+            //src="/producerphoto.jpg" 
+            src="" 
             alt="Background image"
             layout='fill'
             objectFit='cover'
@@ -40,7 +41,7 @@ const Home: React.FC = () => {
 
           <Link href="/about" passHref>
             <div className="flex items-center space-x-1 cursor-pointer">
-
+              //<Image src="/sample-labs-logo.png" alt="Logo" width={35} height={35} />
               <span className="text-xl font-medium">WAVLABS</span>
               <span className="text-xs mb-1 font-medium bg-primary rounded text-primary-foreground px-1">ALPHA</span>
             </div>
