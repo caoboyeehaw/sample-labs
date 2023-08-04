@@ -11,7 +11,7 @@ interface RootLayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Samplelabs',
+  title: 'WavLabs',
   description: 'Producer Sample Bank and Music IDs',
 }
 
