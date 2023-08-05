@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button-newyork"
 import { Icons } from "@/components/icons"
 
 export function CoffeeIconLink() {
-  const repoUrl = "https://www.buymeacoffee.com/caoboyeehaw";
+  const repoUrl = "https://ko-fi.com/caoboyeehaw";
 
   return (
     <Button asChild variant="ghost" size="icon">
