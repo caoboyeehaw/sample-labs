@@ -68,7 +68,7 @@ const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProp
                     <div className="absolute inset-0 bg-zinc-900"/>
                     <div className="relative z-20 flex items-center text-lg font-medium">
                         <div className="relative z-20 flex items-center text-lg font-medium">
-                            <Image src="/sample-labs-logo.png" alt="Logo" width={70} height={70} className="mr-2 h-8 w-8" />
+                            <Image src="/wavlabs-logo.png" alt="Logo" width={70} height={70} className="mr-2 h-8 w-8" />
                             WavLabs
                         </div>
                     </div>

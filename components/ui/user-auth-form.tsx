@@ -23,7 +23,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   }
 
   return (
-    <div className={cn("grid gap-6", className)} {...props}>
+    <div className={cn("grid gap-5", className)} {...props}>
 
       <Button variant="outline" type="button" disabled={isLoading} className="relative flex items-center justify-center">
         {isLoading ? (
@@ -44,21 +44,22 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       </Button>
 
 
-
-      <div className="relative">
+      <div className="relative mt-3 mb-3">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
+
         <div className="relative flex justify-center text-xs uppercase">
           <span className="bg-background px-2 text-muted-foreground">
             OR
           </span>
+          
         </div>
         
       </div>
       <form onSubmit={onSubmit}>
         <div className="grid gap-4">
-          <div className="grid gap-1">
+          <div className="grid gap-1 mb-2">
             <Label className="sr-only" htmlFor="email">
               Email
             </Label>
