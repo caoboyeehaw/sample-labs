@@ -33,7 +33,7 @@ const Home: React.FC = () => {
 
           <Link href="/about" passHref>
             <div className="flex items-center space-x-1 cursor-pointer">
-              <Image src="/wavlabs-logo.png" alt="Logo" width={35} height={35} />
+              <Image src="/wavlabs-logo.png" alt="Logo" width={30} height={30} />
               <span className="text-xl font-medium">WAVLABS</span>
               <span className="text-xs mb-1 font-medium bg-primary rounded text-primary-foreground px-1">ALPHA</span>
             </div>
