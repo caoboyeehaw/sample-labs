@@ -2,10 +2,14 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Modal from 'react-modal';
+
+
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button-newyork";
 import { UserAuthForm } from "@/components/ui/user-auth-form";
-import React, { useState } from 'react'; // Import useState
+import styled, { createGlobalStyle } from 'styled-components';
+
+
 
 export const metadata: Metadata = {
     title: "Authentication",
@@ -18,43 +22,70 @@ interface AuthenticationModalProps {
 }
 
 const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProps) => {
-    const [modalStyles, setModalStyles] = useState({
-        opacity: '0',
-        transform: 'translate(-50%, -50%) scale(0.5)',
-        top: '50%', // Add these lines
-        left: '50%',
-        right: '50%',
-        bottom: '50%'
-    });
+    const customStyles = {
+        content: {
+            border: '1px solid #27272a',
+            padding: '0px',
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
 
+            transform: 'translate(-50%, -50%)', // Initial scale removed
+            opacity: 0,
+            transition: 'opacity 0.2s ease-in-out',
+            //boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
+
+            borderRadius: '10px',
+
+            willchange: 'opacity, transform', // Added will-change property
+
+        },
+        overlay: {
+            background: 'rgba(50, 50, 50, 0.30)',
+            backdropFilter: 'blur(4px)',
+            transition: 'opacity 0.4s ease-in-out',
+        },
+    };
+    
+    const GlobalStyle = createGlobalStyle`
+
+    @keyframes fade-in {
+        from { 
+            opacity: 0; 
+            transform: scale(0.5);  // Use 0.5 instead of 0.6
+        }
+        to { 
+            opacity: 1; 
+            transform: scale(1);  // Keep this at 1
+        }
+    }
+    
+    @keyframes fade-out {
+        from { 
+            opacity: 1; 
+            transform: scale(1);  // Keep this at 1
+        }
+        to { 
+            opacity: 0; 
+            transform: scale(0.5);  // Use 0.5 instead of 0.6
+        }
+    }
+`;
+    
     return (
         <Modal 
             isOpen={isOpen} 
-            onRequestClose={onRequestClose}
-            className="relative border border-gray-700 p-0 transform transition-all duration-200 ease-in-out rounded-md"
-            overlayClassName="bg-opacity-30 backdrop-blur-md transition-opacity duration-400 ease-in-out"
+            onRequestClose={onRequestClose} 
+            style={customStyles}
             onAfterOpen={() => {
-                setModalStyles({
-                    opacity: '1',
-                    transform: 'translate(-50%, -50%) scale(1)',
-                    top: '50%', // Add these lines
-                    left: '50%',
-                    right: 'auto',
-                    bottom: 'auto'
-                });
+                customStyles.content.opacity = 1;
+                customStyles.content.transform = 'translate(-50%, -50%) scale(1.0)';  // Slight increase in size
             }}
             onAfterClose={() => {
-                setModalStyles({
-                    opacity: '0',
-                    transform: 'translate(-50%, -50%) scale(0.5)',
-                    top: '50%', // Add these lines
-                    left: '50%',
-                    right: 'auto',
-                    bottom: 'auto'
-                });
-            }}
-            style={{
-                content: modalStyles // Apply the styles from state
+                customStyles.content.opacity = 0;
+                customStyles.content.transform = 'translate(-50%, -50%)'; // Scale reset to original size
             }}
         >
             <div className="container relative  h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 bg-background">
