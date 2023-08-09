@@ -24,38 +24,40 @@ const Home: React.FC = () => {
       setModalOpen(false);
   }
   
+
+
   return (
-    <div className="relative flex justify-between items-center w-full mt-2">
-      
-      <div className="2xl:container relative flex justify-between items-center mx-auto backdrop-blur">
+    <div className="relative w-full mt-2">
+      <div className="border-b border-accent"> 
+        <div className="2xl:container relative flex justify-between items-center mx-auto backdrop-blur mb-2">
+          <div className="flex items-center space-x-4">
+            <Link href="/about" passHref>
+              <div className="flex items-center space-x-1 cursor-pointer">
+                <Image src="/wavlabs-logo.png" alt="Logo" width={25} height={25} />
+                <span className="text-2xl font-semibold">WavLabs</span>
+                <span className="text-xl font-normal text-zinc-400">| cloud</span>
+              </div>
+            </Link>
 
-        <div className="flex items-center space-x-4 z-20">
+            <p className="flex items-center space-x-1 ">
+              <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Explore</ButtonWavLabs>
+            </p>
 
-          <Link href="/about" passHref>
-            <div className="flex items-center space-x-1 cursor-pointer">
-              <Image src="/wavlabs-logo.png" alt="Logo" width={30} height={30} />
-              <span className="text-xl font-medium">WAVLABS</span>
-              <span className="text-xs mb-1 font-medium bg-primary rounded text-primary-foreground px-1">ALPHA</span>
-            </div>
-          </Link>
+            <p className="flex items-center space-x-1">
+              <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Popular</ButtonWavLabs>
+            </p>
 
-          <p className="flex items-center space-x-1 ">
-            <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Explore</ButtonWavLabs>
-          </p>
+            <p className="flex items-center space-x-1">
+              <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Ranking</ButtonWavLabs>
+            </p>
 
-          <p className="flex items-center space-x-1">
-            <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Popular</ButtonWavLabs>
-          </p>
+          
+            <p className="flex items-center space-x-1">
+              <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Threads</ButtonWavLabs>
+            </p>
 
-          <p className="flex items-center space-x-1">
-            <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Threads</ButtonWavLabs>
-          </p>
 
-          <p className="flex items-center space-x-1">
-            <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Ranking</ButtonWavLabs>
-          </p>
-
-        </div >
+          </div>
 
         <div className="flex space-x-3 z-20 mt-1">
           <p className="flex space-x-3">
@@ -64,18 +66,18 @@ const Home: React.FC = () => {
           </p>
 
           <p className="flex">
-          <GithubIconLink></GithubIconLink>
-          <CoffeeIconLink></CoffeeIconLink>
-          <ModeToggle></ModeToggle>
+            <GithubIconLink></GithubIconLink>
+            <CoffeeIconLink></CoffeeIconLink>
+            <ModeToggle></ModeToggle>
           </p>
+
         </div>
+
         <AuthenticationModal isOpen={isModalOpen} onRequestClose={closeModal} />
       </div>
-      <div className="border-t border-gray-300 h-px"/>
-    </div>
-    
 
-    
+      </div>
+    </div>
   )
 }
 

@@ -20,54 +20,57 @@ interface AuthenticationModalProps {
 const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProps) => {
     const [modalStyles, setModalStyles] = useState({
         opacity: '0',
-        transform: 'translate(-50%, -50%) scale(0.5)',
-        top: '50%', // Add these lines
-        left: '50%',
-        right: '50%',
-        bottom: '50%'
+        transform: 'scale(0.5)',
+        
+
     });
 
     return (
         <Modal 
             isOpen={isOpen} 
             onRequestClose={onRequestClose}
-            className="relative border border-gray-700 p-0 transform transition-all duration-200 ease-in-out rounded-md"
-            overlayClassName="bg-opacity-30 backdrop-blur-md transition-opacity duration-400 ease-in-out"
+            className="relative p-0 transform transition-all duration-200 ease-in-out "
+            overlayClassName="fixed inset-0 bg-black bg-opacity-5 backdrop-blur-sm transition-opacity duration-400 ease-in-out flex items-center justify-center"
+            
             onAfterOpen={() => {
                 setModalStyles({
                     opacity: '1',
-                    transform: 'translate(-50%, -50%) scale(1)',
-                    top: '50%', // Add these lines
-                    left: '50%',
-                    right: 'auto',
-                    bottom: 'auto'
+                    transform: 'scale(1)',
+
                 });
             }}
             onAfterClose={() => {
                 setModalStyles({
                     opacity: '0',
-                    transform: 'translate(-50%, -50%) scale(0.5)',
-                    top: '50%', // Add these lines
-                    left: '50%',
-                    right: 'auto',
-                    bottom: 'auto'
+                    transform: 'scale(0.7)',
+
                 });
             }}
             style={{
-                content: modalStyles // Apply the styles from state
+                content: {
+                    ...modalStyles,
+                    position: 'absolute',
+                    top: '45%',
+                    left: '50%', 
+                    transform: `translate(-50%, -50%) ${modalStyles.transform}`, 
+                    width: '55%', 
+                    maxHeight: '80%', 
+                    border: '1px solid #27272a', 
+                    borderRadius: '1px', 
+                }
             }}
         >
-            <div className="container relative  h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 bg-background">
+            <div className="container relative h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 bg-background">
                 <Link href="/examples/authentication" className={cn(buttonVariants({ variant: "ghost" }), "absolute right-4 top-4 md:right-8 md:top-8")}>
                     Login
                 </Link>
                 <div className="relative hidden h-full flex-col bg-dark p-10 text-white dark:border-r lg:flex">
                     <div className="absolute inset-0 bg-zinc-900"/>
                     <div className="relative z-20 flex items-center text-lg font-medium">
-                    <div className="relative z-20 flex items-center text-lg font-medium">
-                        <Image src="/sample-labs-logo.png" alt="Logo" width={70} height={70} className="mr-2 h-8 w-8" />
-                        WAVLABS LLC
-                    </div>
+                        <div className="relative z-20 flex items-center text-lg font-medium">
+                            <Image src="/sample-labs-logo.png" alt="Logo" width={70} height={70} className="mr-2 h-8 w-8" />
+                            WavLabs
+                        </div>
                     </div>
                     <div className="relative z-20 mt-auto">
                         <blockquote className="space-y-2">
@@ -79,7 +82,7 @@ const AuthenticationModal = ({ isOpen, onRequestClose }: AuthenticationModalProp
                     </div>
                 </div>
                 <div className="lg:p-8">
-                    <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+                    <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[300px]">
                         <div className="flex flex-col space-y-2 text-center">
                             <h1 className="text-2xl font-semibold tracking-tight">
                                 Create an account
