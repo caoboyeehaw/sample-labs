@@ -27,28 +27,32 @@ const Home: React.FC = () => {
   return (
     <div className="relative flex justify-between items-center w-full mt-2">
       
-      <div className="2xl:container relative flex justify-between items-center mx-auto backdrop-blur ">
+      <div className="2xl:container relative flex justify-between items-center mx-auto backdrop-blur">
 
         <div className="flex items-center space-x-4 z-20">
 
           <Link href="/about" passHref>
             <div className="flex items-center space-x-1 cursor-pointer">
-              <Image src="/wavlabs-logo.png" alt="Logo" width={40} height={40} />
+              <Image src="/wavlabs-logo.png" alt="Logo" width={35} height={35} />
               <span className="text-xl font-medium">WAVLABS</span>
               <span className="text-xs mb-1 font-medium bg-primary rounded text-primary-foreground px-1">ALPHA</span>
             </div>
           </Link>
 
+          <p className="flex items-center space-x-1 ">
+            <ButtonWavLabs className="text-lg font-normal" variant="ghost" size="sm">Explore</ButtonWavLabs>
+          </p>
+
           <p className="flex items-center space-x-1">
-            <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Community</ButtonWavLabs>
+            <ButtonWavLabs className="text-lg font-normal" variant="ghost" size="sm">Trending</ButtonWavLabs>
           </p>
 
         </div >
 
         <div className="flex space-x-3 z-20 mt-1">
           <p className="flex space-x-3">
-            <ButtonWavLabs variant="ghost" size="sm" onClick={openModal}>Sign In</ButtonWavLabs>
-            <ButtonWavLabs variant="primary" size="sm" onClick={openModal}>Create account</ButtonWavLabs>
+            <ButtonWavLabs className="text-sm font-bold" variant="ghost2" size="sm" onClick={openModal}>Log In</ButtonWavLabs>
+            <ButtonWavLabs className="text-sm font-bold" variant="primary" size="sm" onClick={openModal}>Create account</ButtonWavLabs>
           </p>
 
           <p className="flex">
@@ -59,7 +63,7 @@ const Home: React.FC = () => {
         </div>
         <AuthenticationModal isOpen={isModalOpen} onRequestClose={closeModal} />
       </div>
-
+      <div className="border-t border-gray-300 h-px"/>
     </div>
     
 
