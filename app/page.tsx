@@ -40,11 +40,19 @@ const Home: React.FC = () => {
           </Link>
 
           <p className="flex items-center space-x-1 ">
-            <ButtonWavLabs className="text-lg font-normal" variant="ghost" size="sm">Explore</ButtonWavLabs>
+            <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Explore</ButtonWavLabs>
           </p>
 
           <p className="flex items-center space-x-1">
-            <ButtonWavLabs className="text-lg font-normal" variant="ghost" size="sm">Trending</ButtonWavLabs>
+            <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Popular</ButtonWavLabs>
+          </p>
+
+          <p className="flex items-center space-x-1">
+            <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Threads</ButtonWavLabs>
+          </p>
+
+          <p className="flex items-center space-x-1">
+            <ButtonWavLabs className="text-md font-normal" variant="ghost" size="sm">Ranking</ButtonWavLabs>
           </p>
 
         </div >
