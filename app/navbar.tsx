@@ -10,6 +10,9 @@ import { GithubIconLink } from '@/components/ui/github-icon';
 import { CoffeeIconLink } from '@/components/ui/coffee-icon';
 import { ModeToggle } from '@/components/ui/mode-toggle';
 import { Icons } from "@/components/icons"
+
+import { ProfileOptions } from '@/components/ui/profile-options'
+
 import AuthenticationModal from "@/components/ui/authenticationmodal";
 
 export default function Navbar() {
@@ -32,9 +35,10 @@ export default function Navbar() {
             <div className="flex items-center space-x-4">
                 <Link href="/about" passHref>
                     <div className="flex items-center space-x-1 cursor-pointer pl-4">
-                    <Image src="/wavlabs-logo.png" alt="Logo" width={25} height={25} />
-                    <span className="text-2xl font-semibold">WavLabs</span>
-                    <span className="text-xl font-normal text-zinc-400">| cloud</span>
+                        <Image src="/wavlabs-logo.png" alt="Logo" width={25} height={25} />
+                        <span className="text-2xl font-semibold">WavLabs</span>
+                        <span className="text-xl font-normal text-zinc-400">| cloud</span>
+                        <Icons.vert/>
                     </div>
                 </Link>
             </div>
@@ -58,6 +62,16 @@ export default function Navbar() {
                 <p className="flex space-x-3">
                     <ButtonWavLabs className="text-sm font-bold" variant="ghost2" size="sm" onClick={openModal}>+ Upload</ButtonWavLabs>
                     <ButtonWavLabs className="text-sm font-bold" variant="primary" size="sm" onClick={openModal}>Log in </ButtonWavLabs>
+                    <ProfileOptions></ProfileOptions>
+                    
+                    {/*
+                    <Button asChild variant="ghost" size="icon">
+                      <Icons.person className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                      <span className="sr-only">Open Profile Options</span>
+                        
+                    </Button>
+                    */}
+
                 </p>
 
             </div>
