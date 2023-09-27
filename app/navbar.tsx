@@ -12,6 +12,7 @@ import { ModeToggle } from '@/components/ui/mode-toggle';
 import { Icons } from "@/components/icons"
 
 import { ProfileOptions } from '@/components/ui/profile-options'
+import { OptionsMenu } from '@/components/ui/options-menu'
 
 import AuthenticationModal from "@/components/ui/authenticationmodal";
 
@@ -38,7 +39,7 @@ export default function Navbar() {
                         <Image src="/wavlabs-logo.png" alt="Logo" width={25} height={25} />
                         <span className="text-2xl font-semibold">WavLabs</span>
                         <span className="text-xl font-normal text-zinc-400">| cloud</span>
-                        <Icons.vert/>
+                        <OptionsMenu/>
                     </div>
                 </Link>
             </div>
